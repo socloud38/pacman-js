@@ -100,4 +100,17 @@ const foodsPosition = [
     {top: 270, left: 230, id: 88},
 ];
 
-export {foodHeight,foodWidth,foodColor,foodsPosition};
+// Create Food
+const foods = foodsPosition.map((p) => {
+    const f = document.createElement('div');
+    f.setAttribute('id', p.id);
+    f.style.width = `${foodWidth}px`;
+    f.style.height = `${foodHeight}px`;
+    f.style.backgroundColor = foodColor;
+    f.style.position = "absolute";
+    f.style.top = `${p.top}px`;
+    f.style.left = `${p.left}px`;
+    return f;
+});
+
+export {foodHeight,foodWidth,foodColor,foodsPosition,foods};
