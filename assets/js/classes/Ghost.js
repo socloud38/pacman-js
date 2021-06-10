@@ -1,17 +1,7 @@
 import {Character} from "./Character";
-import {gameFloor} from "../components/env";
-
-//var
-const heightGhost = 40;
-const widthGhost = 35;
-const colorsGhost = ['cyan', '#f5b041', '#e74c3c', '#e8daef'];
-const directions = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-const ghostLimitStraightLine = 100;
-const stepGhost = 5;
-const sizePacman = 50;
-
-const widthFloor = 700;
-const heightFloor = 700;
+import {GameOver} from "../events/defeatEvent";
+import {heightGhost,widthGhost,colorsGhost,ghostLimitStraightLine,stepGhost} from "../components/ghostStats";
+import {directions,sizePacman} from "../components/pacmanStats";
 
 export class Ghost extends Character {
     constructor (originalX, originalY, wallsInfo, pacman) {
@@ -150,26 +140,4 @@ export class Ghost extends Character {
         this.ghost.style.left = `${this.posX - 25}px`;
         this.ghost.style.bottom = `${this.posY}px`;
     }
-}
-
-function GameOver() {
-    const card = document.createElement('div');
-    card.style.width = "300px";
-    card.style.height = "300px";
-    card.style.border = "solid 3px #3F51B5";
-    card.style.display = "flex";
-    card.style.justifyContent = "center";
-    card.style.alignItems = "center";
-    card.style.backgroundColor = "black";
-    card.style.zIndex= 999;
-    card.style.position = "absolute";
-    card.style.left = `${widthFloor/2 - 150}px`;
-    card.style.top = `${heightFloor/2 - 150}px`;
-    const text = document.createElement('div');
-    text.innerHTML = "Game Over";
-    text.style.color = "red";
-    text.style.fontWeight = "bold";
-    text.style.fontSize = "40px";
-    card.appendChild(text);
-    gameFloor.appendChild(card);
 }

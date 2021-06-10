@@ -21,4 +21,4 @@ gameFloor.style.backgroundColor = "black";
 
 const root = document.getElementById('root');
 
-export {screen, gameFloor,root};
+export {screen, gameFloor,root,widthFloor,heightFloor};

@@ -1,20 +1,8 @@
 import {Character} from "./Character";
 import {foodHeight, foodWidth} from "../components/food";
-import {gameFloor} from "../components/env";
-
-//var
-const sizePacman = 50;
-const directions = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-const step = 5;
-const angleDirection = {
-    ArrowUp: -90,
-    ArrowDown: 90,
-    ArrowLeft: 180,
-    ArrowRight: 0,
-};
-const heightFloor = 700;
-const foodAte = [];
-const maxFood = 88;
+import {heightFloor} from "../components/env";
+import {directions,sizePacman,step,angleDirection,foodAte,maxFood} from "../components/pacmanStats";
+import {Victory} from "../events/victoryEvent";
 
 export class PacMan extends Character {
     constructor (originalX, originalY, wallsInfo, foods) {
@@ -110,26 +98,4 @@ export class PacMan extends Character {
         this.pac.style.bottom = `${this.posY}px`;
         this.eatFood();
     }
-}
-
-function Victory() {
-    const card = document.createElement('div');
-    card.style.width = "300px";
-    card.style.height = "300px";
-    card.style.border = "solid 3px #3F51B5";
-    card.style.display = "flex";
-    card.style.justifyContent = "center";
-    card.style.alignItems = "center";
-    card.style.backgroundColor = "black";
-    card.style.zIndex= 999;
-    card.style.position = "absolute";
-    card.style.left = `${widthFloor/2 - 150}px`;
-    card.style.top = `${heightFloor/2 - 150}px`;
-    const text = document.createElement('div');
-    text.innerHTML = "You won!!";
-    text.style.color = "red";
-    text.style.fontWeight = "bold";
-    text.style.fontSize = "40px";
-    card.appendChild(text);
-    gameFloor.appendChild(card);
 }
