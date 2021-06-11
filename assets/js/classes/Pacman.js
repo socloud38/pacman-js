@@ -62,9 +62,11 @@ export class PacMan extends Character {
                         if (!foodAte.includes(f.id)) {
                             this.countFoods += 1;
                             foodAte.push(f.id);
+                            localStorage.setItem('actualScore', this.countFoods);
                         }
                         if (this.countFoods === maxFood) {
-                            Victory();
+                            Victory(this.countFoods);
+                            localStorage.setItem('oldScore', this.countFoods);
                         }
                     }
                 }
@@ -81,9 +83,11 @@ export class PacMan extends Character {
                         if (!foodAte.includes(f.id)) {
                             this.countFoods += 1;
                             foodAte.push(f.id);
+                            localStorage.setItem('actualScore', this.countFoods);
                         }
                         if (this.countFoods === maxFood) {
-                            Victory();
+                            Victory(this.countFoods);
+                            localStorage.setItem('oldScore', this.countFoods);
                         }
                     }
                 }

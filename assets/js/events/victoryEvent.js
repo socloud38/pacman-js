@@ -1,6 +1,6 @@
 import {gameFloor, heightFloor, widthFloor} from "../components/env";
 
-export function Victory() {
+export function Victory(score) {
     const card = document.createElement('div');
     card.style.width = "300px";
     card.style.height = "300px";
@@ -18,6 +18,18 @@ export function Victory() {
     text.style.color = "red";
     text.style.fontWeight = "bold";
     text.style.fontSize = "40px";
+    const yourScore = document.createElement('div');
+    yourScore.innerHTML = "your score :" + score;
+    yourScore.style.color = "blue";
+    yourScore.style.fontWeight = "bold";
+    yourScore.style.fontSize = "20px";
+    const oldScore = document.createElement('div');
+    oldScore.innerHTML = "your old score :" + localStorage.getItem('oldScore');
+    oldScore.style.color = "gold";
+    oldScore.style.fontWeight = "bold";
+    oldScore.style.fontSize = "20px";
+    text.appendChild(yourScore);
+    text.appendChild(oldScore);
     card.appendChild(text);
     gameFloor.appendChild(card);
 }

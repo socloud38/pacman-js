@@ -124,7 +124,7 @@ export class Ghost extends Character {
             // We check if pacman is align with ghost laterally
             if(Math.abs(this.posX - this.pac.getPosX()) < 25) {
                 clearInterval(this.intervalId);
-                GameOver();
+                GameOver(localStorage.getItem('actualScore'));
             }
         }
         // We check if the ghost hit pacman laterally
@@ -134,7 +134,7 @@ export class Ghost extends Character {
             // We check if pacman is align with ghost vertically
             if(Math.abs(this.pac.getPosY() - this.posY) < 25) {
                 clearInterval(this.intervalId);
-                GameOver();
+                GameOver(localStorage.getItem('actualScore'));
             }
         }
         this.ghost.style.left = `${this.posX - 25}px`;
