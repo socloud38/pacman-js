@@ -46,6 +46,7 @@ I have split the project  in multiple js file for make the debug more easily, bu
 
 * Webpack building in my build directory from assets directory.
 
+```
 //src files  
 │── assets  
 │   │── css  
@@ -64,3 +65,4 @@ I have split the project  in multiple js file for make the debug more easily, bu
 │   │── app.js  
 │   │── style.css  
 │   └── index.html
+```
