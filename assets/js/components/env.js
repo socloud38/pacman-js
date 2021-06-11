@@ -1,14 +1,22 @@
 //var
+import {modale, gameStarted} from '../events/SelectLevel';
 import {Ghost} from "../classes/Ghost";
 import {PacMan} from "../classes/Pacman";
 import {wallsInfos} from "./wall";
 import {foodsPosition} from "./food";
+import Logo from '../../images/logo.png';
 
 const widthFloor = 700;
 const heightFloor = 700;
 
 //initializing pacman
 const pacMan = new PacMan(350, 50, wallsInfos, foodsPosition);
+
+//modal
+const myLogo = new Image();
+myLogo.src = Logo;
+myLogo.style.width = "75%";
+modale[0].prepend(myLogo);
 
 // create elements
 const screen = document.createElement('div');
@@ -30,13 +38,13 @@ gameFloor.style.backgroundColor = "black";
 const root = document.getElementById('root');
 
 // Create Ghost
-function generateGhosts() {
+function generateGhosts(delayDifficulty) {
     let intervalGhostId = null;
     const ghost1 = new Ghost(350, 350, wallsInfos, pacMan);
     gameFloor.appendChild(ghost1.getGhost());
     intervalGhostId = setInterval(() => {
         gameFloor.appendChild(new Ghost(350, 350, wallsInfos, pacMan).getGhost());
-    }, 10000);
+    }, delayDifficulty);
 }
 
-export {screen, gameFloor,root,widthFloor,heightFloor,generateGhosts,pacMan};
+export {screen, gameFloor,root,widthFloor,heightFloor,generateGhosts,pacMan,gameStarted};

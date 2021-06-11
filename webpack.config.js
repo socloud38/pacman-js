@@ -36,6 +36,11 @@ module.exports = {
                     'css-loader',
                 ],
             },
+            {
+                //IMAGE LOADER
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                type: "asset/resource",
+            },
         ],
     },
 };

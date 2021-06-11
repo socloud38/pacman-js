@@ -1,3 +1,4 @@
+import {gameStarted, level} from "../events/SelectLevel"
 //var
 const heightGhost = 40;
 const widthGhost = 35;
